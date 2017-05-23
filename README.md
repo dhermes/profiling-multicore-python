@@ -54,6 +54,6 @@ sys     0m0.040s
 
 ![Using multiprocessing with 8 cores][multiproc8]
 
-[multiproc2]: https://gist.github.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4#file-dstat-multiproc-2.png
-[multiproc4]: https://gist.github.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4#file-dstat-multiproc-4.png
-[multiproc8]: https://gist.github.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4#file-dstat-multiproc-8.png
+[multiproc2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-multiproc-2.png
+[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-multiproc-4.png
+[multiproc8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-multiproc-8.png
