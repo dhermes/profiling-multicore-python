@@ -182,4 +182,16 @@ With `multiprocessing`, there is near-perfect scaling until 4 cores. Then
 8 cores takes twice as long as 4 cores (i.e. there is no speedup, the
 virtual cores are "fake").
 
-With `threading`, I am still not sure what I'm looking at.
+With `threading`, I am still not sure what I'm looking at. It seems (from
+[StackOverflow][1] and a [blog post][2] from a respected community member)
+that the answer is the threads are **actually** at the OS-level, so they
+do use multiple cores. However, they are still bound by the shared global
+state of the GIL. Quoth Jesse Noller:
+
+> CPython uses what's called "operating system" threads under the covers,
+> which is to say each time a request to make a new thread is made, the
+> interpreter actually calls into the operating system's libraries and
+> kernel to generate a new thread.
+
+[1]: https://stackoverflow.com/a/4496918/1068170
+[2]: http://jessenoller.com/2009/02/01/python-threads-and-the-global-interpreter-lock/

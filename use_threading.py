@@ -15,7 +15,7 @@ def main():
     to_sum = 2**26
     args = (to_sum,)
 
-    for i in six.moves.xrange(num_threads):
+    for _ in six.moves.xrange(num_threads):
         t = threading.Thread(target=sumrange, args=args)
         t.start()
 
