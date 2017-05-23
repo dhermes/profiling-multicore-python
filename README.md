@@ -146,6 +146,15 @@ sys     0m26.920s
 
 [threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-threading-8.png
 
+## Baseline
+
+Here is my machine when no Python process is running (but any background
+is acceptable):
+
+![Nothing running][nothing]
+
+[nothing]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-nothing-running.png
+
 ## Discussion
 
 With `multiprocessing`, there is near-perfect scaling until 4 cores. Then
