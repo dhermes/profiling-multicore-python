@@ -184,7 +184,7 @@ virtual cores are "fake").
 
 With `threading`, I am still not sure what I'm looking at. It seems (from
 [StackOverflow][1] and a [blog post][2] from a respected community member)
-that the answer is the threads are **actually** at the OS-level, so they
+that the answer is the threads are **actually** at the OS level, so they
 do use multiple cores. However, they are still bound by the shared global
 state of the GIL. Quoth Jesse Noller:
 
