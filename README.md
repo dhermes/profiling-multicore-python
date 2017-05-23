@@ -20,7 +20,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 12" dstat-multiproc-2.txt
 
 ```
 $ # Actual computation
-$ time python use_multiprocessing.py --num-procs 2
+$ time python2.7 use_multiprocessing.py --num-procs 2
 [36028796884746240, 36028796884746240]
 
 real    0m6.236s
@@ -41,7 +41,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 12" dstat-multiproc-4.txt
 
 ```
 $ # Actual computation
-$ time python use_multiprocessing.py --num-procs 4
+$ time python2.7 use_multiprocessing.py --num-procs 4
 [36028796884746240, 36028796884746240, ...]
 
 real    0m6.970s
@@ -62,7 +62,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 16" dstat-multiproc-8.txt
 
 ```
 $ # Actual computation
-$ time python use_multiprocessing.py --num-procs 8
+$ time python2.7 use_multiprocessing.py --num-procs 8
 [36028796884746240, 36028796884746240, ...]
 
 real    0m12.169s
@@ -83,7 +83,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 10" dstat-threading-2.txt
 
 ```
 $ # Actual computation
-$ time python use_threading.py --num-threads 2
+$ time python2.7 use_threading.py --num-threads 2
 2251799780130816
 2251799780130816
 
@@ -105,7 +105,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 18" dstat-threading-4.txt
 
 ```
 $ # Actual computation
-$ time python use_threading.py --num-threads 4
+$ time python2.7 use_threading.py --num-threads 4
 2251799780130816
 2251799780130816
 2251799780130816
@@ -129,7 +129,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 32" dstat-threading-8.txt
 
 ```
 $ # Actual computation
-$ time python use_threading.py --num-threads 8
+$ time python2.7 use_threading.py --num-threads 8
 2251799780130816
 2251799780130816
 2251799780130816
@@ -145,6 +145,27 @@ sys     0m26.920s
 ```
 
 [threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-threading-8.png
+
+## Non-Threaded
+
+```
+$ # Capture output
+$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 10" dstat-non-threaded.txt
+```
+
+![Do the computation without threading][non-threaded]
+
+```
+$ # Actual computation
+$ time python non_threaded.py
+36028796884746240
+
+real    0m5.866s
+user    0m5.792s
+sys     0m0.024s
+```
+
+[non-threaded]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-non-threaded.png
 
 ## Baseline
 
