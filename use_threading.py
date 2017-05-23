@@ -10,7 +10,8 @@ def sumrange(n):
 
 
 def main():
-    num_threads = shared.get_num_procs('Run threading test.')
+    num_threads = shared.get_num_workers(
+        'Run threading test.', 'num_threads')
     to_sum = 2**26
     args = (to_sum,)
 

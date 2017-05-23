@@ -83,7 +83,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 10" dstat-threading-2.txt
 
 ```
 $ # Actual computation
-$ time python use_threading.py --num-procs 2
+$ time python use_threading.py --num-threads 2
 2251799780130816
 2251799780130816
 
@@ -105,7 +105,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 18" dstat-threading-4.txt
 
 ```
 $ # Actual computation
-$ time python use_threading.py --num-procs 4
+$ time python use_threading.py --num-threads 4
 2251799780130816
 2251799780130816
 2251799780130816
@@ -129,7 +129,7 @@ $ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 32" dstat-threading-8.txt
 
 ```
 $ # Actual computation
-$ time python use_threading.py --num-procs 8
+$ time python use_threading.py --num-threads 8
 2251799780130816
 2251799780130816
 2251799780130816

@@ -4,7 +4,8 @@ import shared
 
 
 def main():
-    num_procs = shared.get_num_procs('Run multiprocessing test.')
+    num_procs = shared.get_num_workers(
+        'Run multiprocessing test.', 'num_procs')
     pool = multiprocessing.Pool(processes=num_procs)
     to_sum = 2**28
     inputs = [to_sum] * num_procs

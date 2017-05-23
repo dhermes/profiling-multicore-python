@@ -11,9 +11,11 @@ def sumrange(n):
     return result
 
 
-def get_num_procs(description):
+def get_num_workers(description, name):
     parser = argparse.ArgumentParser(description=description)
-    parser.add_argument('--num-procs', dest='num_procs',
+    flag = '--' + name.replace('_', '-')
+    parser.add_argument(flag, dest=name,
                         type=int, default=4)
+
     args = parser.parse_args()
-    return args.num_procs
+    return getattr(args, name)
