@@ -1,34 +1,21 @@
-import argparse
 import threading
 
 import six
 
+import shared
+
 
 def sumrange(n):
-    result = 0
-    for value in six.moves.xrange(n):
-        result += value
-
-    print(result)
-
-
-def get_num_procs():
-    parser = argparse.ArgumentParser(
-        description='Run multiprocessing test.')
-    parser.add_argument('--num-procs', dest='num_procs',
-                        type=int, default=4)
-    args = parser.parse_args()
-    return args.num_procs
+    print(shared.sumrange(n))
 
 
 def main():
-    nt = 2
-    n = 2**28
+    num_threads = shared.get_num_procs('Run threading test.')
+    to_sum = 2**26
+    args = (to_sum,)
 
-    threads = []
-    for i in six.moves.xrange(nt):
-        t = threading.Thread(target=sumrange, args=(n,))
-        threads.append(t)
+    for i in six.moves.xrange(num_threads):
+        t = threading.Thread(target=sumrange, args=args)
         t.start()
 
 
