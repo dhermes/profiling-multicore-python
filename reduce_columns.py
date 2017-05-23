@@ -12,6 +12,8 @@ HEADER_BLOCK = (
     'wai', ' ', 'hiq', ' ', 'siq',
 )
 UNUSED_HEADERS = ('idl', 'wai', 'hiq', 'siq')
+FILENAME_IN = 'dstat-colors.txt'
+FILENAME_OUT = 'dstat-colors-reduced.txt'
 
 
 class AnsiSeq(object):
@@ -87,7 +89,7 @@ def tokenize(line, reverse_map):
 def main():
     reverse_map = reverse_colorama()
 
-    with open('dstat-colors.txt', 'rb') as file_obj:
+    with open(FILENAME_IN, 'rb') as file_obj:
         content = file_obj.read()
     assert content.count(FUNKY_SEQ) == 12
     content = content.replace(FUNKY_SEQ, b'')
@@ -197,7 +199,7 @@ def main():
         new_lines.append(''.join(curr_parts))
 
 
-    with open('dstat-colors-reduced.txt', 'wb') as file_obj:
+    with open(FILENAME_OUT, 'wb') as file_obj:
         file_obj.write(b'\n'.join(new_lines))
 
 
