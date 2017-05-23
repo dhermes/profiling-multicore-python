@@ -90,7 +90,7 @@ def main():
     reverse_map = reverse_colorama()
 
     with open(FILENAME_IN, 'rb') as file_obj:
-        content = file_obj.read()
+        content = file_obj.read().strip()
     assert content.count(FUNKY_SEQ) == 12
     content = content.replace(FUNKY_SEQ, b'')
 
