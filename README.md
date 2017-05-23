@@ -1,4 +1,6 @@
-This is a simple hack to illustrate Python's use of cores.
+This is a simple hack to illustrate Python's use of cores
+with concurrent / parallel code. (The code here is CPU
+intensive, not I/O intensive.)
 
 There are two files `use_multiprocessing.py` and
 `use_threading.py`, which will be traced using `dstat`. Then
