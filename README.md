@@ -27,23 +27,17 @@ $ python watch_cpu.py \
 ## `multiprocessing` with 4 processes
 
 ```
-$ # Capture output
-$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 12" dstat-multiproc-4.txt
+$ python watch_cpu.py \
+>   --total-intervals 12 \
+>   --filename profile-multiproc-4.png \
+>   --script use_multiprocessing.py \
+>   --num-procs 4
+[36028796884746240, 36028796884746240, 36028796884746240, 36028796884746240]
 ```
 
 ![Using multiprocessing with 4 cores][multiproc4]
 
-```
-$ # Actual computation
-$ time python2.7 use_multiprocessing.py --num-procs 4
-[36028796884746240, 36028796884746240, ...]
-
-real    0m6.970s
-user    0m25.728s
-sys     0m0.048s
-```
-
-[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-multiproc-4.png
+[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-4.png
 
 ## `multiprocessing` with 8 processes
 
