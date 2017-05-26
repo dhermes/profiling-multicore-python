@@ -81,26 +81,22 @@ Saved profile-threading-2.png
 ## `threading` with 4 threads
 
 ```
-$ # Capture output
-$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 18" dstat-threading-4.txt
+$ python watch_cpu.py \
+>   --total-intervals 19 \
+>   --filename profile-threading-4.png \
+>   --script use_threading.py \
+>   --num-threads 4 \
+>   --data-id threading:4
+2251799780130816
+2251799780130816
+2251799780130816
+2251799780130816
+Saved profile-threading-4.png
 ```
 
 ![Using threading with 4 threads][threading4]
 
-```
-$ # Actual computation
-$ time python2.7 use_threading.py --num-threads 4
-2251799780130816
-2251799780130816
-2251799780130816
-2251799780130816
-
-real    0m14.600s
-user    0m20.820s
-sys     0m13.280s
-```
-
-[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-threading-4.png
+[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-4.png
 
 ## `threading` with 8 threads
 
