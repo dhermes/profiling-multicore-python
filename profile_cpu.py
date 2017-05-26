@@ -101,7 +101,9 @@ def save_data(cpu_time_series, data_id):
 
     _, filename = tempfile.mkstemp()
     with open(filename, 'w') as file_obj:
-        json.dump(all_data, file_obj, indent=2, separators=(',', ': '))
+        json.dump(
+            all_data, file_obj, sort_keys=True,
+            indent=2, separators=(',', ': '))
         file_obj.write('\n')
 
     shutil.move(filename, DATA_FILENAME)
