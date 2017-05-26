@@ -35,7 +35,7 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus):
     # NOTE: Importing numpy takes a long time, so it is done here
     #       intentionally (to avoid messing with the
     #       profiling information).
-    import numpy as np
+    import numpy as np  # 1.12.1
 
     ax = all_axes[cpu_index]
     # Add user info to plot.
@@ -59,8 +59,8 @@ def plot_all_info(cpu_time_series):
     # NOTE: Importing matplotlib / numpy / seaborn takes a long time, so
     #       it is done here intentionally (to avoid messing with the
     #       profiling information).
-    import matplotlib.pyplot as plt
-    import seaborn
+    import matplotlib.pyplot as plt  # 2.0.2
+    import seaborn  # 0.7.1
 
     num_cpus = len(cpu_time_series['user'])
     rows = num_cpus
