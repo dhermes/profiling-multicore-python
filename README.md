@@ -14,8 +14,10 @@ This was done on a 4-core machine with 8 virtual cores.
 ```
 $ python watch_cpu.py \
 >   --total-intervals 12 \
+>   --filename profile-multiproc-2.png \
 >   --script use_multiprocessing.py \
 >   --num-procs 2
+[36028796884746240, 36028796884746240]
 ```
 
 ![Using multiprocessing with 2 cores][multiproc2]

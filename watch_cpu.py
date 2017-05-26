@@ -3,9 +3,6 @@ import subprocess
 import time
 
 
-DEFAULT_INTERVAL = 1.0
-
-
 def get_args():
     parser = argparse.ArgumentParser(
         description='Profile CPU while doing a computation.')
@@ -14,34 +11,47 @@ def get_args():
         type=int, required=True,
         help='Total number of intervals to profile for.')
     parser.add_argument(
-        '--interval', type=float, default=DEFAULT_INTERVAL,
+        '--interval', type=float,
         help='The sample interval during profiling.')
     script_help = (
         'The Python script to execute for profiling. All unused '
         'arguments will be passed to the script.')
     parser.add_argument(
         '--script', required=True, help=script_help)
+    filename_help = (
+        'The filename to save the plot into. If not provided, the plot '
+        'will just be displayed interactively.')
+    parser.add_argument('--filename', help=filename_help)
 
     return parser.parse_known_args()
 
 
-def main():
-    args, unknown = get_args()
-
-    # https://stackoverflow.com/a/11316397/1068170
-    # https://stackoverflow.com/a/41433401/1068170
-    cmd1 = (
+def start_profiler(args):
+    cmd = (
         'python',
         'profile_cpu.py',
         '--total-intervals', str(args.total_intervals),
-        '--interval', str(args.interval),
     )
-    proc1 = subprocess.Popen(cmd1)
+    if args.interval is not None:
+        cmd += ('--interval', str(args.interval))
+    if args.filename is not None:
+        cmd += ('--filename', args.filename)
+    return subprocess.Popen(cmd)
 
-    # Do some profiling before starting the computation.
+
+def start_script(args, unknown):
+    cmd = ('python', args.script) + tuple(unknown)
+    return subprocess.Popen(cmd)
+
+
+def main():
+    args, unknown = get_args()
+    # https://stackoverflow.com/a/11316397/1068170
+    # https://stackoverflow.com/a/41433401/1068170
+    proc1 = start_profiler(args)
+    # Allow profiler some "dead time" before starting the computation.
     time.sleep(3)
-    cmd2 = ('python', args.script) + tuple(unknown)
-    proc2 = subprocess.Popen(cmd2)
+    proc2 = start_script(args, unknown)
 
     # Keep this process alive until both subprocesses are done,
     # but don't block on either one.

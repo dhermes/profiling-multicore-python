@@ -55,7 +55,7 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus, interval):
     return usr_line, sys_line
 
 
-def plot_all_info(cpu_time_series, interval):
+def plot_all_info(cpu_time_series, interval, filename):
     # NOTE: Importing matplotlib / numpy / seaborn takes a long time, so
     #       it is done here intentionally (to avoid messing with the
     #       profiling information).
@@ -73,7 +73,12 @@ def plot_all_info(cpu_time_series, interval):
             all_axes, cpu_index, cpu_time_series, num_cpus, interval)
 
     fig.legend((usr_line, sys_line), ('User', 'System'), loc='upper right')
-    plt.show()
+    fig.set_size_inches(8.0, 8.14)
+    fig.tight_layout()
+    if filename is None:
+        plt.show()
+    else:
+        plt.savefig(filename)
 
 
 def get_args():
@@ -86,6 +91,10 @@ def get_args():
     parser.add_argument(
         '--interval', type=float, default=DEFAULT_INTERVAL,
         help='The sample interval during profiling.')
+    filename_help = (
+        'The filename to save the plot into. If not provided, the plot '
+        'will just be displayed interactively.')
+    parser.add_argument('--filename', help=filename_help)
 
     return parser.parse_args()
 
@@ -94,7 +103,7 @@ def main():
     args = get_args()
     all_info = profile(args.total_intervals, interval=args.interval)
     cpu_time_series = process_info(all_info)
-    plot_all_info(cpu_time_series, args.interval)
+    plot_all_info(cpu_time_series, args.interval, args.filename)
 
 
 if __name__ == '__main__':
