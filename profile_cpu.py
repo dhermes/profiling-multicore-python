@@ -79,6 +79,7 @@ def plot_all_info(cpu_time_series, interval, filename):
         plt.show()
     else:
         plt.savefig(filename)
+        print('Saved {}'.format(filename))
 
 
 def get_args():
