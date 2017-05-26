@@ -31,7 +31,7 @@ def process_info(all_info):
     return cpu_time_series
 
 
-def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus):
+def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus, interval):
     # NOTE: Importing numpy takes a long time, so it is done here
     #       intentionally (to avoid messing with the
     #       profiling information).
@@ -40,7 +40,7 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus):
     ax = all_axes[cpu_index]
     # Add user info to plot.
     y_vals = cpu_time_series['user'][cpu_index]
-    x_vals = np.arange(len(y_vals))
+    x_vals = np.arange(len(y_vals)) * interval
     usr_line, = ax.plot(x_vals, y_vals)
     # Add system info to plot.
     y_vals = cpu_time_series['system'][cpu_index]
@@ -55,7 +55,7 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus):
     return usr_line, sys_line
 
 
-def plot_all_info(cpu_time_series):
+def plot_all_info(cpu_time_series, interval):
     # NOTE: Importing matplotlib / numpy / seaborn takes a long time, so
     #       it is done here intentionally (to avoid messing with the
     #       profiling information).
@@ -70,7 +70,7 @@ def plot_all_info(cpu_time_series):
 
     for cpu_index in six.moves.xrange(num_cpus):
         usr_line, sys_line = plot_info(
-            all_axes, cpu_index, cpu_time_series, num_cpus)
+            all_axes, cpu_index, cpu_time_series, num_cpus, interval)
 
     fig.legend((usr_line, sys_line), ('User', 'System'), loc='upper right')
     plt.show()
@@ -90,7 +90,7 @@ def main():
     args = parser.parse_args()
     all_info = profile(args.total_intervals, interval=args.interval)
     cpu_time_series = process_info(all_info)
-    plot_all_info(cpu_time_series)
+    plot_all_info(cpu_time_series, args.interval)
 
 
 if __name__ == '__main__':
