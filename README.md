@@ -12,23 +12,15 @@ This was done on a 4-core machine with 8 virtual cores.
 ## `multiprocessing` with 2 processes
 
 ```
-$ # Capture output
-$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 12" dstat-multiproc-2.txt
+$ python watch_cpu.py \
+>   --total-intervals 12 \
+>   --script use_multiprocessing.py \
+>   --num-procs 2
 ```
 
 ![Using multiprocessing with 2 cores][multiproc2]
 
-```
-$ # Actual computation
-$ time python2.7 use_multiprocessing.py --num-procs 2
-[36028796884746240, 36028796884746240]
-
-real    0m6.236s
-user    0m12.172s
-sys     0m0.028s
-```
-
-[multiproc2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-multiproc-2.png
+[multiproc2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-2.png
 
 ## `multiprocessing` with 4 processes
 
