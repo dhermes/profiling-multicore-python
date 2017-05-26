@@ -3,7 +3,11 @@ with concurrent / parallel code. (The code here is CPU
 intensive, not I/O intensive.)
 
 There are two files `use_multiprocessing.py` and
-`use_threading.py`, which will be traced using `psutil`.
+`use_threading.py`, which will be traced using:
+
+```python
+psutil.cpu_times_percent(interval, percpu=True)
+```
 
 This was done on a 4-core machine with 8 virtual cores.
 
