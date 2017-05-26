@@ -133,23 +133,18 @@ sys     0m26.920s
 ## Non-Threaded
 
 ```
-$ # Capture output
-$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 10" dstat-non-threaded.txt
+$ python watch_cpu.py \
+>   --total-intervals 12 \
+>   --filename profile-non-threaded.png \
+>   --script non_threaded.py \
+>   --data-id non-threaded:1
+36028796884746240
+Saved profile-non-threaded.png
 ```
 
 ![Do the computation without threading][non-threaded]
 
-```
-$ # Actual computation
-$ time python non_threaded.py
-36028796884746240
-
-real    0m5.866s
-user    0m5.792s
-sys     0m0.024s
-```
-
-[non-threaded]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-non-threaded.png
+[non-threaded]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-non-threaded.png
 
 ## Baseline
 
