@@ -76,7 +76,7 @@ def plot_all_info(cpu_time_series, interval):
     plt.show()
 
 
-def main():
+def get_args():
     parser = argparse.ArgumentParser(
         description='Profile CPU usage across cores.')
     parser.add_argument(
@@ -87,7 +87,11 @@ def main():
         '--interval', type=float, default=DEFAULT_INTERVAL,
         help='The sample interval during profiling.')
 
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def main():
+    args = get_args()
     all_info = profile(args.total_intervals, interval=args.interval)
     cpu_time_series = process_info(all_info)
     plot_all_info(cpu_time_series, args.interval)
