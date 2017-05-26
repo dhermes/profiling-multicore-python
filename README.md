@@ -101,30 +101,26 @@ Saved profile-threading-4.png
 ## `threading` with 8 threads
 
 ```
-$ # Capture output
-$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 32" dstat-threading-8.txt
+$ python watch_cpu.py \
+>   --total-intervals 32 \
+>   --filename profile-threading-8.png \
+>   --script use_threading.py \
+>   --num-threads 8 \
+>   --data-id threading:8
+2251799780130816
+2251799780130816
+2251799780130816
+2251799780130816
+2251799780130816
+2251799780130816
+2251799780130816
+2251799780130816
+Saved profile-threading-8.png
 ```
 
 ![Using threading with 8 threads][threading8]
 
-```
-$ # Actual computation
-$ time python2.7 use_threading.py --num-threads 8
-2251799780130816
-2251799780130816
-2251799780130816
-2251799780130816
-2251799780130816
-2251799780130816
-2251799780130816
-2251799780130816
-
-real    0m27.663s
-user    0m39.132s
-sys     0m26.920s
-```
-
-[threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-threading-8.png
+[threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-8.png
 
 ## Non-Threaded
 
