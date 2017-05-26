@@ -22,6 +22,9 @@ def get_args():
         'The filename to save the plot into. If not provided, the plot '
         'will just be displayed interactively.')
     parser.add_argument('--filename', help=filename_help)
+    parser.add_argument(
+        '--data-id', dest='data_id',
+        help='Identifier for the profile data when being saved.')
 
     return parser.parse_known_args()
 
@@ -36,6 +39,8 @@ def start_profiler(args):
         cmd += ('--interval', str(args.interval))
     if args.filename is not None:
         cmd += ('--filename', args.filename)
+    if args.data_id is not None:
+        cmd += ('--data-id', args.data_id)
     return subprocess.Popen(cmd)
 
 

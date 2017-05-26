@@ -16,7 +16,8 @@ $ python watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename profile-multiproc-2.png \
 >   --script use_multiprocessing.py \
->   --num-procs 2
+>   --num-procs 2 \
+>   --data-id multiprocessing:2
 [36028796884746240, 36028796884746240]
 ```
 
@@ -31,7 +32,8 @@ $ python watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename profile-multiproc-4.png \
 >   --script use_multiprocessing.py \
->   --num-procs 4
+>   --num-procs 4 \
+>   --data-id multiprocessing:4
 [36028796884746240, 36028796884746240, 36028796884746240, 36028796884746240]
 ```
 
@@ -46,7 +48,8 @@ $ python watch_cpu.py \
 >   --total-intervals 19 \
 >   --filename profile-multiproc-8.png \
 >   --script use_multiprocessing.py \
->   --num-procs 8
+>   --num-procs 8 \
+>   --data-id multiprocessing:8
 [36028796884746240, 36028796884746240, ...]
 ```
 

@@ -1,11 +1,17 @@
 import argparse
 import collections
+import json
+import os
+import shutil
+import tempfile
 
 import psutil  # 5.2.2
 import six  # 1.10.0
 
 
 DEFAULT_INTERVAL = 1.0
+CURR_DIR = os.path.abspath(os.path.dirname(__file__))
+DATA_FILENAME = os.path.join(CURR_DIR, 'profiles.json')
 
 
 def profile(total_intervals, interval=DEFAULT_INTERVAL):
@@ -82,6 +88,25 @@ def plot_all_info(cpu_time_series, interval, filename):
         print('Saved {}'.format(filename))
 
 
+def save_data(cpu_time_series, data_id):
+    if data_id is None:
+        print('No data ID provided, data is not being saved.')
+        return
+
+    with open(DATA_FILENAME, 'r') as file_obj:
+        all_data = json.load(file_obj)
+
+    data_group = all_data.setdefault(data_id, [])
+    data_group.append(cpu_time_series)
+
+    _, filename = tempfile.mkstemp()
+    with open(filename, 'w') as file_obj:
+        json.dump(all_data, file_obj, indent=2, separators=(',', ': '))
+        file_obj.write('\n')
+
+    shutil.move(filename, DATA_FILENAME)
+
+
 def get_args():
     parser = argparse.ArgumentParser(
         description='Profile CPU usage across cores.')
@@ -96,6 +121,9 @@ def get_args():
         'The filename to save the plot into. If not provided, the plot '
         'will just be displayed interactively.')
     parser.add_argument('--filename', help=filename_help)
+    parser.add_argument(
+        '--data-id', dest='data_id',
+        help='Identifier for the data when being saved.')
 
     return parser.parse_args()
 
@@ -105,6 +133,7 @@ def main():
     all_info = profile(args.total_intervals, interval=args.interval)
     cpu_time_series = process_info(all_info)
     plot_all_info(cpu_time_series, args.interval, args.filename)
+    save_data(cpu_time_series, args.data_id)
 
 
 if __name__ == '__main__':
