@@ -52,7 +52,7 @@ $ python watch_cpu.py \
 
 ![Using multiprocessing with 8 cores][multiproc8]
 
-[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-8.png
+[multiproc8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-8.png
 
 ## `threading` with 2 threads
 
