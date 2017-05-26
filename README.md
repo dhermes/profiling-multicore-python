@@ -19,6 +19,7 @@ $ python watch_cpu.py \
 >   --num-procs 2 \
 >   --data-id multiprocessing:2
 [36028796884746240, 36028796884746240]
+Saved profile-multiproc-2.png
 ```
 
 ![Using multiprocessing with 2 cores][multiproc2]
@@ -35,6 +36,7 @@ $ python watch_cpu.py \
 >   --num-procs 4 \
 >   --data-id multiprocessing:4
 [36028796884746240, 36028796884746240, 36028796884746240, 36028796884746240]
+Saved profile-multiproc-4.png
 ```
 
 ![Using multiprocessing with 4 cores][multiproc4]
@@ -51,6 +53,7 @@ $ python watch_cpu.py \
 >   --num-procs 8 \
 >   --data-id multiprocessing:8
 [36028796884746240, 36028796884746240, ...]
+Saved profile-multiproc-8.png
 ```
 
 ![Using multiprocessing with 8 cores][multiproc8]
@@ -60,24 +63,20 @@ $ python watch_cpu.py \
 ## `threading` with 2 threads
 
 ```
-$ # Capture output
-$ script -q -c "dstat -t -c -s -C 0,1,2,3,4,5,6,7 1 10" dstat-threading-2.txt
+$ python watch_cpu.py \
+>   --total-intervals 12 \
+>   --filename profile-threading-2.png \
+>   --script use_threading.py \
+>   --num-threads 2 \
+>   --data-id threading:2
+2251799780130816
+2251799780130816
+Saved profile-threading-2.png
 ```
 
 ![Using threading with 2 threads][threading2]
 
-```
-$ # Actual computation
-$ time python2.7 use_threading.py --num-threads 2
-2251799780130816
-2251799780130816
-
-real    0m5.586s
-user    0m5.980s
-sys     0m2.944s
-```
-
-[threading2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-threading-2.png
+[threading2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-2.png
 
 ## `threading` with 4 threads
 
