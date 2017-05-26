@@ -151,9 +151,19 @@ Saved profile-non-threaded.png
 Here is my machine when no Python process is running (but any background
 is acceptable):
 
+```
+$ python watch_cpu.py \
+>   --total-intervals 12 \
+>   --filename profile-nothing-running.png \
+>   --script do_nothing.py \
+>   --data-id do-nothing
+Did nothing
+Saved profile-nothing-running.png
+```
+
 ![Nothing running][nothing]
 
-[nothing]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/dstat-nothing-running.png
+[nothing]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-nothing-running.png
 
 ## Discussion
 
