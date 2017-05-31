@@ -3,12 +3,14 @@ import argparse
 import six
 
 
-def sumrange(n):
+def sumrange(cpu_id, n):
+    # NOTE: `cpu_id` is unused for now but **will** be used to set
+    #       CPU affinity.
     result = 0
     for value in six.moves.xrange(n):
         result += value
 
-    return result
+    print(result)
 
 
 def get_num_workers(description, name):
