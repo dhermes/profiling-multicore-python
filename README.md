@@ -89,18 +89,18 @@ $ python3.6 watch_cpu.py \
 >   --data-id threading:2
 2251799780130816
 2251799780130816
-Saved profile-threading-2-bb37639e-2c7a-4654-bd52-58610b9c60fd.png
+Saved profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
 ```
 
 ![Using threading with 2 threads][threading2]
 
-[threading2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-2-bb37639e-2c7a-4654-bd52-58610b9c60fd.png
+[threading2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
 
 ## `threading` with 4 threads
 
 ```
 $ python3.6 watch_cpu.py \
->   --total-intervals 19 \
+>   --total-intervals 22 \
 >   --filename-base profile-threading-4 \
 >   --script use_threading.py \
 >   --num-threads 4 \
@@ -110,12 +110,12 @@ $ python3.6 watch_cpu.py \
 2251799780130816
 2251799780130816
 2251799780130816
-Saved profile-threading-4-cba8b645-e29a-4f69-8aa3-fc07a7420080.png
+Saved profile-threading-4-f9c2695f-215b-4403-be3f-0d2f99f6f76b.png
 ```
 
 ![Using threading with 4 threads][threading4]
 
-[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-4-cba8b645-e29a-4f69-8aa3-fc07a7420080.png
+[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-4-f9c2695f-215b-4403-be3f-0d2f99f6f76b.png
 
 ## `threading` with 8 threads
 
@@ -135,12 +135,12 @@ $ python3.6 watch_cpu.py \
 2251799780130816
 2251799780130816
 2251799780130816
-Saved profile-threading-8-56dda57f-eaa2-46f3-87f2-aa9b456682c3.png
+Saved profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
 ```
 
 ![Using threading with 8 threads][threading8]
 
-[threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-8-56dda57f-eaa2-46f3-87f2-aa9b456682c3.png
+[threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
 
 ## Non-Threaded
 
