@@ -1,5 +1,6 @@
 import argparse
 import subprocess
+import sys
 import time
 
 
@@ -31,7 +32,7 @@ def get_args():
 
 def start_profiler(args):
     cmd = (
-        'python',
+        sys.executable,
         'profile_cpu.py',
         '--total-intervals', str(args.total_intervals),
     )
@@ -45,7 +46,7 @@ def start_profiler(args):
 
 
 def start_script(args, unknown):
-    cmd = ('python', args.script) + tuple(unknown)
+    cmd = (sys.executable, args.script) + tuple(unknown)
     return subprocess.Popen(cmd)
 
 
