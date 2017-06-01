@@ -17,10 +17,10 @@ This was done on a 4-core machine with 8 virtual cores.
 $ python3.6 watch_cpu.py \
 >   --total-intervals 18 \
 >   --filename-base profile-multiproc-2 \
+>   --data-id multiprocessing:2 \
 >   --script use_multiprocessing.py \
->   --num-procs 2 \
->   --pin-cpu \
->   --data-id multiprocessing:2
+>            --num-procs 2 \
+>            --pin-cpu
 36028796884746240
 36028796884746240
 Saved profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
@@ -36,10 +36,10 @@ Saved profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
 $ python3.6 watch_cpu.py \
 >   --total-intervals 18 \
 >   --filename-base profile-multiproc-4 \
+>   --data-id multiprocessing:4 \
 >   --script use_multiprocessing.py \
->   --num-procs 4 \
->   --pin-cpu \
->   --data-id multiprocessing:4
+>            --num-procs 4 \
+>            --pin-cpu
 36028796884746240
 36028796884746240
 36028796884746240
@@ -58,10 +58,10 @@ $ python3.6 watch_cpu.py \
 >   --total-intervals 15 \
 >   --interval 2 \
 >   --filename-base profile-multiproc-8 \
+>   --data-id multiprocessing:8 \
 >   --script use_multiprocessing.py \
->   --num-procs 8 \
->   --pin-cpu \
->   --data-id multiprocessing:8
+>            --num-procs 8 \
+>            --pin-cpu
 36028796884746240
 36028796884746240
 36028796884746240
@@ -83,10 +83,10 @@ Saved profile-multiproc-8-e983a3c0-8c08-4fd8-82a6-ce64d31b6899.png
 $ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-threading-2 \
+>   --data-id threading:2 \
 >   --script use_threading.py \
->   --num-threads 2 \
->   --pin-cpu \
->   --data-id threading:2
+>            --num-threads 2 \
+>            --pin-cpu
 2251799780130816
 2251799780130816
 Saved profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
@@ -102,10 +102,10 @@ Saved profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
 $ python3.6 watch_cpu.py \
 >   --total-intervals 22 \
 >   --filename-base profile-threading-4 \
+>   --data-id threading:4 \
 >   --script use_threading.py \
->   --num-threads 4 \
->   --pin-cpu \
->   --data-id threading:4
+>            --num-threads 4 \
+>            --pin-cpu
 2251799780130816
 2251799780130816
 2251799780130816
@@ -123,10 +123,10 @@ Saved profile-threading-4-f9c2695f-215b-4403-be3f-0d2f99f6f76b.png
 $ python3.6 watch_cpu.py \
 >   --total-intervals 32 \
 >   --filename-base profile-threading-8 \
+>   --data-id threading:8 \
 >   --script use_threading.py \
->   --num-threads 8 \
->   --pin-cpu \
->   --data-id threading:8
+>            --num-threads 8 \
+>            --pin-cpu
 2251799780130816
 2251799780130816
 2251799780130816
@@ -148,8 +148,8 @@ Saved profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
 $ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-non-threaded \
->   --script non_threaded.py \
->   --data-id non-threaded:1
+>   --data-id non-threaded:1 \
+>   --script non_threaded.py
 36028796884746240
 Saved profile-non-threaded-a9f9dbae-c138-4eae-8b76-baf2e054d31f.png
 ```
@@ -167,8 +167,8 @@ is acceptable):
 $ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-nothing-running \
->   --script do_nothing.py \
->   --data-id do-nothing
+>   --data-id do-nothing \
+>   --script do_nothing.py
 Did nothing
 Saved profile-nothing-running-2f52de95-ac0e-4c13-a773-5f41723671e2.png
 ```
