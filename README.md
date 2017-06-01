@@ -14,28 +14,31 @@ This was done on a 4-core machine with 8 virtual cores.
 ## `multiprocessing` with 2 processes
 
 ```
-$ python watch_cpu.py \
->   --total-intervals 12 \
+$ python3.6 watch_cpu.py \
+>   --total-intervals 18 \
 >   --filename-base profile-multiproc-2 \
 >   --script use_multiprocessing.py \
 >   --num-procs 2 \
+>   --pin-cpu \
 >   --data-id multiprocessing:2
-[36028796884746240, 36028796884746240]
-Saved profile-multiproc-2-c5a1dc52-9107-45ae-8fe3-5e304dfca960.png
+36028796884746240
+36028796884746240
+Saved profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
 ```
 
 ![Using multiprocessing with 2 cores][multiproc2]
 
-[multiproc2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-2-c5a1dc52-9107-45ae-8fe3-5e304dfca960.png
+[multiproc2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
 
 ## `multiprocessing` with 4 processes
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-multiproc-4 \
 >   --script use_multiprocessing.py \
 >   --num-procs 4 \
+>   --pin-cpu \
 >   --data-id multiprocessing:4
 [36028796884746240, 36028796884746240, 36028796884746240, 36028796884746240]
 Saved profile-multiproc-4-64ad3a08-28c2-4a68-adee-121d67ab43b1.png
@@ -48,11 +51,12 @@ Saved profile-multiproc-4-64ad3a08-28c2-4a68-adee-121d67ab43b1.png
 ## `multiprocessing` with 8 processes
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 19 \
 >   --filename-base profile-multiproc-8 \
 >   --script use_multiprocessing.py \
 >   --num-procs 8 \
+>   --pin-cpu \
 >   --data-id multiprocessing:8
 [36028796884746240, 36028796884746240, ...]
 Saved profile-multiproc-8-8fdcf2e7-8665-4e8a-8a68-8135151b9e5f.png
@@ -65,11 +69,12 @@ Saved profile-multiproc-8-8fdcf2e7-8665-4e8a-8a68-8135151b9e5f.png
 ## `threading` with 2 threads
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-threading-2 \
 >   --script use_threading.py \
 >   --num-threads 2 \
+>   --pin-cpu \
 >   --data-id threading:2
 2251799780130816
 2251799780130816
@@ -83,11 +88,12 @@ Saved profile-threading-2-bb37639e-2c7a-4654-bd52-58610b9c60fd.png
 ## `threading` with 4 threads
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 19 \
 >   --filename-base profile-threading-4 \
 >   --script use_threading.py \
 >   --num-threads 4 \
+>   --pin-cpu \
 >   --data-id threading:4
 2251799780130816
 2251799780130816
@@ -103,11 +109,12 @@ Saved profile-threading-4-cba8b645-e29a-4f69-8aa3-fc07a7420080.png
 ## `threading` with 8 threads
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 32 \
 >   --filename-base profile-threading-8 \
 >   --script use_threading.py \
 >   --num-threads 8 \
+>   --pin-cpu \
 >   --data-id threading:8
 2251799780130816
 2251799780130816
@@ -127,7 +134,7 @@ Saved profile-threading-8-56dda57f-eaa2-46f3-87f2-aa9b456682c3.png
 ## Non-Threaded
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-non-threaded \
 >   --script non_threaded.py \
@@ -146,7 +153,7 @@ Here is my machine when no Python process is running (but any background
 is acceptable):
 
 ```
-$ python watch_cpu.py \
+$ python3.6 watch_cpu.py \
 >   --total-intervals 12 \
 >   --filename-base profile-nothing-running \
 >   --script do_nothing.py \
