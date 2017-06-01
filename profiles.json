@@ -3,6 +3,7 @@
     {
       "id": "2f52de95-ac0e-4c13-a773-5f41723671e2",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -118,7 +119,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -240,6 +240,7 @@
     {
       "id": "40dee1b8-c033-4c9b-aceb-d4039d882ebe",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -355,7 +356,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -475,6 +475,7 @@
     {
       "id": "c5a1dc52-9107-45ae-8fe3-5e304dfca960",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -590,7 +591,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -710,6 +710,7 @@
     {
       "id": "787c4e41-e673-48a1-8a8e-7019238a18a5",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Darwin-15.6.0-x86_64-i386-64bit",
       "system": [
         [
@@ -769,7 +770,6 @@
           2.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           17.0,
@@ -835,6 +835,7 @@
     {
       "id": "9700d0df-de9c-4055-97cc-9d602a7b737f",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -950,7 +951,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -1070,6 +1070,7 @@
     {
       "id": "4d9b87cf-9041-4c32-9821-e45f2bdc7683",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -1185,7 +1186,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -1305,6 +1305,7 @@
     {
       "id": "69055ac6-494c-4e6d-b4a1-6e5f5a22e3a2",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -1420,7 +1421,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           3.0,
@@ -1540,6 +1540,7 @@
     {
       "id": "64ad3a08-28c2-4a68-adee-121d67ab43b1",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -1655,7 +1656,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -1775,6 +1775,7 @@
     {
       "id": "91345f00-8594-40ad-894b-eb5dcdd8199e",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -1890,7 +1891,6 @@
           1.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           4.0,
@@ -2012,6 +2012,7 @@
     {
       "id": "2136f969-6b49-45d1-a896-11cdb87cedbd",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -2183,7 +2184,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -2359,6 +2359,7 @@
     {
       "id": "8fdcf2e7-8665-4e8a-8a68-8135151b9e5f",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -2530,7 +2531,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           3.1,
@@ -2708,6 +2708,7 @@
     {
       "id": "cb17c150-475f-4f27-8961-675a5b8dfa1e",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -2823,7 +2824,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -2943,6 +2943,7 @@
     {
       "id": "a9f9dbae-c138-4eae-8b76-baf2e054d31f",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -3058,7 +3059,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -3180,6 +3180,7 @@
     {
       "id": "3d5704f3-9fa2-4d89-b05a-31774eb67f90",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -3295,7 +3296,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -3415,6 +3415,7 @@
     {
       "id": "bb37639e-2c7a-4654-bd52-58610b9c60fd",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -3530,7 +3531,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -3652,6 +3652,7 @@
     {
       "id": "cba8b645-e29a-4f69-8aa3-fc07a7420080",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -3823,7 +3824,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -4001,6 +4001,7 @@
     {
       "id": "56dda57f-eaa2-46f3-87f2-aa9b456682c3",
       "interval": 1.0,
+      "pin_cpu": false,
       "platform": "Linux-4.4.0-78-generic-x86_64-with-debian-stretch-sid",
       "system": [
         [
@@ -4276,7 +4277,6 @@
           0.0
         ]
       ],
-      "use_setaffinity": false,
       "user": [
         [
           2.0,

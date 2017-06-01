@@ -28,6 +28,12 @@ def get_args():
     parser.add_argument(
         '--data-id', dest='data_id',
         help='Identifier for the profile data when being saved.')
+    pin_cpu_help = (
+        'Indicates if each process/thread should be pinned '
+        'to a given CPU.')
+    parser.add_argument(
+        '--pin-cpu', dest='pin_cpu',
+        action='store_true', help=pin_cpu_help)
 
     return parser.parse_known_args()
 
@@ -44,11 +50,17 @@ def start_profiler(args):
         cmd += ('--filename-base', args.filename_base)
     if args.data_id is not None:
         cmd += ('--data-id', args.data_id)
+    if args.pin_cpu:
+        cmd += ('--pin-cpu',)
     return subprocess.Popen(cmd)
 
 
 def start_script(args, unknown):
-    cmd = (sys.executable, args.script) + tuple(unknown)
+    cmd = (sys.executable, args.script)
+    if args.pin_cpu:
+        cmd += ('--pin-cpu',)
+    cmd += tuple(unknown)
+
     return subprocess.Popen(cmd)
 
 

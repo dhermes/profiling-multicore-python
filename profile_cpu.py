@@ -54,13 +54,13 @@ def shape(rectangle):
     return num_rows, num_cols
 
 
-def process_info(all_info, interval):
+def process_info(all_info, interval, pin_cpu):
     cpu_time_series = {
         'id': str(uuid.uuid4()),
         'interval': interval,
         'platform': platform.platform(),
         'system': collections.defaultdict(list),
-        'use_setaffinity': False,
+        'pin_cpu': pin_cpu,
         'user': collections.defaultdict(list),
         'version': sys.version,
     }
@@ -172,6 +172,12 @@ def get_args():
     parser.add_argument(
         '--data-id', dest='data_id',
         help='Identifier for the data when being saved.')
+    pin_cpu_help = (
+        'Indicates if each process/thread should be pinned '
+        'to a given CPU.')
+    parser.add_argument(
+        '--pin-cpu', dest='pin_cpu',
+        action='store_true', help=pin_cpu_help)
 
     return parser.parse_args()
 
@@ -179,7 +185,7 @@ def get_args():
 def main():
     args = get_args()
     all_info = profile(args.total_intervals, interval=args.interval)
-    cpu_time_series = process_info(all_info, args.interval)
+    cpu_time_series = process_info(all_info, args.interval, args.pin_cpu)
     plot_all_info(cpu_time_series, args.filename_base)
     save_data(cpu_time_series, args.data_id)
 
