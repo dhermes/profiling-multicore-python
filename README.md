@@ -34,37 +34,48 @@ Saved profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
 
 ```
 $ python3.6 watch_cpu.py \
->   --total-intervals 12 \
+>   --total-intervals 18 \
 >   --filename-base profile-multiproc-4 \
 >   --script use_multiprocessing.py \
 >   --num-procs 4 \
 >   --pin-cpu \
 >   --data-id multiprocessing:4
-[36028796884746240, 36028796884746240, 36028796884746240, 36028796884746240]
-Saved profile-multiproc-4-64ad3a08-28c2-4a68-adee-121d67ab43b1.png
+36028796884746240
+36028796884746240
+36028796884746240
+36028796884746240
+Saved profile-multiproc-4-063a462d-0dce-42d3-9fc6-2fcbfe9d48da.png
 ```
 
 ![Using multiprocessing with 4 cores][multiproc4]
 
-[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-4-64ad3a08-28c2-4a68-adee-121d67ab43b1.png
+[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-4-063a462d-0dce-42d3-9fc6-2fcbfe9d48da.png
 
 ## `multiprocessing` with 8 processes
 
 ```
 $ python3.6 watch_cpu.py \
->   --total-intervals 19 \
+>   --total-intervals 15 \
+>   --interval 2 \
 >   --filename-base profile-multiproc-8 \
 >   --script use_multiprocessing.py \
 >   --num-procs 8 \
 >   --pin-cpu \
 >   --data-id multiprocessing:8
-[36028796884746240, 36028796884746240, ...]
-Saved profile-multiproc-8-8fdcf2e7-8665-4e8a-8a68-8135151b9e5f.png
+36028796884746240
+36028796884746240
+36028796884746240
+36028796884746240
+36028796884746240
+36028796884746240
+36028796884746240
+36028796884746240
+Saved profile-multiproc-8-e983a3c0-8c08-4fd8-82a6-ce64d31b6899.png
 ```
 
 ![Using multiprocessing with 8 cores][multiproc8]
 
-[multiproc8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-8-8fdcf2e7-8665-4e8a-8a68-8135151b9e5f.png
+[multiproc8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-8-e983a3c0-8c08-4fd8-82a6-ce64d31b6899.png
 
 ## `threading` with 2 threads
 
