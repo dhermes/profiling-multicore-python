@@ -116,6 +116,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -349,6 +350,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -580,6 +582,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -813,6 +816,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -1044,6 +1048,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -1275,6 +1280,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           3.0,
@@ -1506,6 +1512,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -1795,6 +1802,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -2138,6 +2146,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           3.1,
@@ -2427,6 +2436,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -2658,6 +2668,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -2891,6 +2902,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           2.0,
@@ -3122,6 +3134,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           0.0,
@@ -3411,6 +3424,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           1.0,
@@ -3860,6 +3874,7 @@
           0.0
         ]
       ],
+      "use_setaffinity": false,
       "user": [
         [
           2.0,
