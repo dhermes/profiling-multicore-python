@@ -103,7 +103,7 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus, interval):
     return usr_line, sys_line
 
 
-def plot_all_info(cpu_time_series, filename):
+def plot_all_info(cpu_time_series, filename_base):
     # NOTE: Importing matplotlib / numpy / seaborn takes a long time, so
     #       it is done here intentionally (to avoid messing with the
     #       profiling information).
@@ -124,9 +124,10 @@ def plot_all_info(cpu_time_series, filename):
     fig.legend((usr_line, sys_line), ('User', 'System'), loc='upper right')
     fig.set_size_inches(8.0, 8.14)
     fig.tight_layout()
-    if filename is None:
+    if filename_base is None:
         plt.show()
     else:
+        filename = '{}-{}.png'.format(filename_base, cpu_time_series['id'])
         plt.savefig(filename)
         print('Saved {}'.format(filename))
 
@@ -163,9 +164,11 @@ def get_args():
         '--interval', type=float, default=DEFAULT_INTERVAL,
         help='The sample interval during profiling.')
     filename_help = (
-        'The filename to save the plot into. If not provided, the plot '
-        'will just be displayed interactively.')
-    parser.add_argument('--filename', help=filename_help)
+        'The base filename to save the plot into (will be augmented with a '
+        'unique ID). If not provided, the plot will just be displayed '
+        'interactively.')
+    parser.add_argument(
+        '--filename-base', dest='filename_base', help=filename_help)
     parser.add_argument(
         '--data-id', dest='data_id',
         help='Identifier for the data when being saved.')
@@ -177,7 +180,7 @@ def main():
     args = get_args()
     all_info = profile(args.total_intervals, interval=args.interval)
     cpu_time_series = process_info(all_info, args.interval)
-    plot_all_info(cpu_time_series, args.filename)
+    plot_all_info(cpu_time_series, args.filename_base)
     save_data(cpu_time_series, args.data_id)
 
 
