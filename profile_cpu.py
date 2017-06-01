@@ -2,7 +2,9 @@ import argparse
 import collections
 import json
 import os
+import platform
 import shutil
+import sys
 import tempfile
 
 import psutil  # 5.2.2
@@ -24,15 +26,53 @@ def profile(total_intervals, interval=DEFAULT_INTERVAL):
     return all_info
 
 
-def process_info(all_info):
+def make_rectangular(data_dict):
+    # Make sure keys are 0,1,...,N-1  (for N CPUs)
+    key_vals = sorted(map(int, six.iterkeys(data_dict)))
+    assert key_vals == list(six.moves.xrange(len(key_vals)))
+    # Make sure all are lists.
+    all_types = set(map(type, six.itervalues(data_dict)))
+    assert all_types == set([list])
+    # Make sure all have the same number of observations.
+    all_lens = set(map(len, six.itervalues(data_dict)))
+    assert len(all_lens) == 1
+    num_observations = all_lens.pop()
+
+    return [data_dict[cpu_id] for cpu_id in key_vals]
+
+
+def shape(rectangle):
+    assert isinstance(rectangle, list)
+    num_rows = len(rectangle)
+    assert set(map(type, rectangle)) == set([list])
+
+    all_lens = set(map(len, rectangle))
+    assert len(all_lens) == 1
+    num_cols = all_lens.pop()
+
+    return num_rows, num_cols
+
+
+def process_info(all_info, interval):
     cpu_time_series = {
-        'user': collections.defaultdict(list),
+        'interval': interval,
+        'platform': platform.platform(),
         'system': collections.defaultdict(list),
+        'use_setaffinity': False,
+        'user': collections.defaultdict(list),
+        'version': sys.version,
     }
     for loc_info in all_info:
         for index, cpu_info in enumerate(loc_info):
             cpu_time_series['user'][index].append(cpu_info.user)
             cpu_time_series['system'][index].append(cpu_info.system)
+
+    # Ditch defaultdict() and use rectangular list of lists.
+    user_data = make_rectangular(cpu_time_series['user'])
+    system_data = make_rectangular(cpu_time_series['system'])
+    assert shape(user_data) == shape(system_data)
+    cpu_time_series['user'] = user_data
+    cpu_time_series['system'] = system_data
 
     return cpu_time_series
 
@@ -61,7 +101,7 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus, interval):
     return usr_line, sys_line
 
 
-def plot_all_info(cpu_time_series, interval, filename):
+def plot_all_info(cpu_time_series, filename):
     # NOTE: Importing matplotlib / numpy / seaborn takes a long time, so
     #       it is done here intentionally (to avoid messing with the
     #       profiling information).
@@ -74,6 +114,7 @@ def plot_all_info(cpu_time_series, interval, filename):
     fig, all_axes = plt.subplots(rows, cols)
     all_axes = all_axes.flatten()
 
+    interval = cpu_time_series['interval']
     for cpu_index in six.moves.xrange(num_cpus):
         usr_line, sys_line = plot_info(
             all_axes, cpu_index, cpu_time_series, num_cpus, interval)
@@ -133,8 +174,8 @@ def get_args():
 def main():
     args = get_args()
     all_info = profile(args.total_intervals, interval=args.interval)
-    cpu_time_series = process_info(all_info)
-    plot_all_info(cpu_time_series, args.interval, args.filename)
+    cpu_time_series = process_info(all_info, args.interval)
+    plot_all_info(cpu_time_series, args.filename)
     save_data(cpu_time_series, args.data_id)
 
 
