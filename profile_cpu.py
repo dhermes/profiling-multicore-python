@@ -6,6 +6,7 @@ import platform
 import shutil
 import sys
 import tempfile
+import uuid
 
 import psutil  # 5.2.2
 import six  # 1.10.0
@@ -55,6 +56,7 @@ def shape(rectangle):
 
 def process_info(all_info, interval):
     cpu_time_series = {
+        'id': str(uuid.uuid4()),
         'interval': interval,
         'platform': platform.platform(),
         'system': collections.defaultdict(list),
