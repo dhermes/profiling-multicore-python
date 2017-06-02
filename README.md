@@ -146,17 +146,17 @@ Saved profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
 
 ```
 $ python3.6 watch_cpu.py \
->   --total-intervals 12 \
+>   --total-intervals 18 \
 >   --filename-base profile-non-threaded \
 >   --data-id non-threaded:1 \
 >   --script non_threaded.py
 36028796884746240
-Saved profile-non-threaded-a9f9dbae-c138-4eae-8b76-baf2e054d31f.png
+Saved profile-non-threaded-c3186a05-46b0-4b4e-95ac-5d602d882317.png
 ```
 
 ![Do the computation without threading][non-threaded]
 
-[non-threaded]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-non-threaded-a9f9dbae-c138-4eae-8b76-baf2e054d31f.png
+[non-threaded]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-non-threaded-c3186a05-46b0-4b4e-95ac-5d602d882317.png
 
 ## Baseline
 
