@@ -95,7 +95,9 @@ def plot_info(all_axes, cpu_index, cpu_time_series, num_cpus, interval):
     sys_line, = ax.plot(x_vals, y_vals, linestyle='dotted')
     # Set plot attributes.
     ax.set_ylim(-5.0, 105.0)
-    ax.set_xticks(x_vals)
+    # Only manually set the ticks if there are a small number.
+    if len(x_vals) < 13:
+        ax.set_xticks(x_vals)
     ax.tick_params(labelleft='off')
     if cpu_index != num_cpus - 1:
         ax.tick_params(labelbottom='off')

@@ -1,19 +1,44 @@
 import argparse
+import ctypes
 import os
 
 import six
 
 
-def setaffinity(cpu_id):
-    if not six.PY3:
-        raise EnvironmentError(
-            'os.sched_setaffinity only exists in Python 3')
+LIBC = ctypes.cdll.LoadLibrary('libc.so.6')
 
+
+def libc_setaffinity(pid, cpu_id):
+    # H/T: http://developers-club.com/posts/141181/
+    # BEGIN: syscall setup (should be globals but meh).
+    cpu_set_t = ctypes.c_size_t
+    cpu_set_t_ptr = ctypes.POINTER(cpu_set_t)
+    # From: https://linux.die.net/man/2/sched_getaffinity
+    # int sched_setaffinity(pid_t pid, size_t cpusetsize,
+    #                       cpu_set_t *mask);
+    setaffinity_syscall = LIBC.sched_setaffinity
+    setaffinity_syscall.argtypes = [
+        ctypes.c_int,  # pid_t,
+        ctypes.c_size_t,  # size_t
+        cpu_set_t_ptr,  # *cpu_set_t
+    ]
+    #   END: syscall setup
+
+    mask = cpu_set_t(2**cpu_id)
+    cpusetsize = ctypes.sizeof(cpu_set_t)
+    if setaffinity_syscall(pid, cpusetsize, mask) < 0:
+        raise OSError('Failed sched_setaffinity system call')
+
+
+def setaffinity(cpu_id):
     # NOTE: "Current process" won't be the same as ``os.getpid()``
     #       for Python threads. These will actually correspond to the
     #       "thread ID" (Python used native ``pthread``-s when possible).
     pid = 0  # Zero == Current Process
-    os.sched_setaffinity(pid, [cpu_id])
+    if six.PY3:
+        os.sched_setaffinity(pid, [cpu_id])
+    else:
+        libc_setaffinity(pid, cpu_id)
 
 
 def sumrange(cpu_id, n, pin_cpu):
