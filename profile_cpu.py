@@ -126,6 +126,7 @@ def plot_all_info(cpu_time_series, filename_base):
     fig.tight_layout()
     if filename_base is None:
         plt.show()
+        print('Finished {}'.format(cpu_time_series['id']))
     else:
         filename = '{}-{}.png'.format(filename_base, cpu_time_series['id'])
         plt.savefig(filename)

@@ -100,7 +100,7 @@ Saved profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
 
 ```
 $ python3.6 watch_cpu.py \
->   --total-intervals 22 \
+>   --total-intervals 24 \
 >   --filename-base profile-threading-4 \
 >   --data-id threading:4 \
 >   --script use_threading.py \
@@ -110,12 +110,12 @@ $ python3.6 watch_cpu.py \
 2251799780130816
 2251799780130816
 2251799780130816
-Saved profile-threading-4-f9c2695f-215b-4403-be3f-0d2f99f6f76b.png
+Saved profile-threading-4-efa9f722-d8f1-4f6c-b5ed-7f5a05a00292.png
 ```
 
 ![Using threading with 4 threads][threading4]
 
-[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-4-f9c2695f-215b-4403-be3f-0d2f99f6f76b.png
+[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-4-efa9f722-d8f1-4f6c-b5ed-7f5a05a00292.png
 
 ## `threading` with 8 threads
 
