@@ -1,11 +1,25 @@
 import argparse
 import ctypes
 import os
+try:
+    import win32process
+except ImportError:
+    win32process = None
 
 import six
 
 
-LIBC = ctypes.cdll.LoadLibrary('libc.so.6')
+try:
+    LIBC = ctypes.cdll.LoadLibrary('libc.so.6')
+except WindowsError:
+    LIBC = None
+
+
+def win_setaffinity(cpu_id):
+    # H/T: https://pypi.python.org/pypi/affinity/0.1.0
+    curr_proc = win32process.GetCurrentProcess()
+    proc_mask = 2**cpu_id
+    win32process.SetProcessAffinityMask(curr_proc, proc_mask)
 
 
 def libc_setaffinity(pid, cpu_id):
@@ -37,8 +51,12 @@ def setaffinity(cpu_id):
     pid = 0  # Zero == Current Process
     if six.PY3:
         os.sched_setaffinity(pid, [cpu_id])
-    else:
+    elif LIBC is not None:
         libc_setaffinity(pid, cpu_id)
+    elif win32process is not None:
+        win_setaffinity(cpu_id)
+    else:
+        raise NotImplementedError('Cannot setaffinity on current platform')
 
 
 def sumrange(cpu_id, n, pin_cpu):
