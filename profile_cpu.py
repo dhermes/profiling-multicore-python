@@ -146,7 +146,8 @@ def save_data(cpu_time_series, data_id):
     data_group = all_data.setdefault(data_id, [])
     data_group.append(cpu_time_series)
 
-    _, filename = tempfile.mkstemp()
+    file_desc, filename = tempfile.mkstemp()
+    os.close(file_desc)
     with open(filename, 'w') as file_obj:
         json.dump(
             all_data, file_obj, sort_keys=True,

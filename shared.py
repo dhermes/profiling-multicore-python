@@ -1,9 +1,12 @@
 import argparse
 import ctypes
 import os
+import threading
 try:
+    import win32api
     import win32process
 except ImportError:
+    win32api = None
     win32process = None
 
 import six
@@ -17,9 +20,15 @@ except WindowsError:
 
 def win_setaffinity(cpu_id):
     # H/T: https://pypi.python.org/pypi/affinity/0.1.0
-    curr_proc = win32process.GetCurrentProcess()
     proc_mask = 2**cpu_id
-    win32process.SetProcessAffinityMask(curr_proc, proc_mask)
+
+    curr_py_thread = threading.current_thread()
+    if curr_py_thread.name == 'MainThread':
+        curr_proc = win32process.GetCurrentProcess()
+        win32process.SetProcessAffinityMask(curr_proc, proc_mask)
+    else:
+        curr_win_thread = win32api.GetCurrentThread()
+        win32process.SetThreadAffinityMask(curr_win_thread, proc_mask)
 
 
 def libc_setaffinity(pid, cpu_id):
