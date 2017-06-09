@@ -3,6 +3,7 @@ import ctypes
 import os
 import threading
 try:
+    # NOTE: Needs `pypiwin32` in Python 3.
     import win32api
     import win32process
 except ImportError:
@@ -58,14 +59,13 @@ def setaffinity(cpu_id):
     #       for Python threads. These will actually correspond to the
     #       "thread ID" (Python used native ``pthread``-s when possible).
     pid = 0  # Zero == Current Process
-    if six.PY3:
-        os.sched_setaffinity(pid, [cpu_id])
-    elif LIBC is not None:
-        libc_setaffinity(pid, cpu_id)
-    elif win32process is not None:
-        win_setaffinity(cpu_id)
+    if win32process is None:
+        if six.PY3:
+            os.sched_setaffinity(pid, [cpu_id])
+        else:
+            libc_setaffinity(pid, cpu_id)
     else:
-        raise NotImplementedError('Cannot setaffinity on current platform')
+        win_setaffinity(cpu_id)
 
 
 def sumrange(cpu_id, n, pin_cpu):
