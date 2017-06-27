@@ -28,7 +28,7 @@ Saved profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
 
 ![Using multiprocessing with 2 cores][multiproc2]
 
-[multiproc2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
+[multiproc2]: images/profile-multiproc-2-077c2b2f-9683-42f3-9df1-25a065f9f8d8.png
 
 ## `multiprocessing` with 4 processes
 
@@ -49,7 +49,7 @@ Saved profile-multiproc-4-063a462d-0dce-42d3-9fc6-2fcbfe9d48da.png
 
 ![Using multiprocessing with 4 cores][multiproc4]
 
-[multiproc4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-4-063a462d-0dce-42d3-9fc6-2fcbfe9d48da.png
+[multiproc4]: images/profile-multiproc-4-063a462d-0dce-42d3-9fc6-2fcbfe9d48da.png
 
 ## `multiprocessing` with 8 processes
 
@@ -75,7 +75,7 @@ Saved profile-multiproc-8-e983a3c0-8c08-4fd8-82a6-ce64d31b6899.png
 
 ![Using multiprocessing with 8 cores][multiproc8]
 
-[multiproc8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-multiproc-8-e983a3c0-8c08-4fd8-82a6-ce64d31b6899.png
+[multiproc8]: images/profile-multiproc-8-e983a3c0-8c08-4fd8-82a6-ce64d31b6899.png
 
 ## `threading` with 2 threads
 
@@ -94,7 +94,7 @@ Saved profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
 
 ![Using threading with 2 threads][threading2]
 
-[threading2]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
+[threading2]: images/profile-threading-2-f001349e-d02b-43d2-929d-15e55aca10ed.png
 
 ## `threading` with 4 threads
 
@@ -115,7 +115,7 @@ Saved profile-threading-4-efa9f722-d8f1-4f6c-b5ed-7f5a05a00292.png
 
 ![Using threading with 4 threads][threading4]
 
-[threading4]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-4-efa9f722-d8f1-4f6c-b5ed-7f5a05a00292.png
+[threading4]: images/profile-threading-4-efa9f722-d8f1-4f6c-b5ed-7f5a05a00292.png
 
 ## `threading` with 8 threads
 
@@ -140,7 +140,7 @@ Saved profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
 
 ![Using threading with 8 threads][threading8]
 
-[threading8]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
+[threading8]: images/profile-threading-8-9756046c-cd1b-4190-a128-9e4ad8bf4cd4.png
 
 ## Non-Threaded
 
@@ -156,7 +156,7 @@ Saved profile-non-threaded-c3186a05-46b0-4b4e-95ac-5d602d882317.png
 
 ![Do the computation without threading][non-threaded]
 
-[non-threaded]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-non-threaded-c3186a05-46b0-4b4e-95ac-5d602d882317.png
+[non-threaded]: images/profile-non-threaded-c3186a05-46b0-4b4e-95ac-5d602d882317.png
 
 ## Baseline
 
@@ -175,7 +175,7 @@ Saved profile-nothing-running-2f52de95-ac0e-4c13-a773-5f41723671e2.png
 
 ![Nothing running][nothing]
 
-[nothing]: https://gist.githubusercontent.com/dhermes/9c92cb6468ed39c51213b5e0a6176fb4/raw/profile-nothing-running-2f52de95-ac0e-4c13-a773-5f41723671e2.png
+[nothing]: images/profile-nothing-running-2f52de95-ac0e-4c13-a773-5f41723671e2.png
 
 ## Discussion
 
